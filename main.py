@@ -40,7 +40,7 @@ def admin_only(f):
 
 
 # CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DBI', 'sqlite:///posts.db')
 db = SQLAlchemy()
 db.init_app(app)
 
